@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html manifest="manifest.appcache">
+<head>
+	<meta content='Red programming language is an open source, native code compiled, dialect of REBOL' name='description'/> 
+	<meta content='red red/system programming tiny fast lean rebol alternative open source cross-platform' name='keywords'/>
+	<meta charset="UTF-8">
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Expires" content="-1"> 
+	<link media="screen" href="download.css" type="text/css" rel="stylesheet">
+	<script>
+		ver = navigator.appVersion; userOS = 0;
+		if (ver.indexOf("Win")!=-1)   userOS = 1;
+		if (ver.indexOf("X11")!=-1)   userOS = 2;
+		if (ver.indexOf("Linux")!=-1) userOS = 2;
+		if (ver.indexOf("Mac")!=-1)   userOS = 3;
+		function copyToClipboard(str,el) {
+			function listener(e) {
+				e.clipboardData.setData("text/plain", str);
+				e.preventDefault();
+			}
+			document.addEventListener("copy", listener);
+			document.execCommand("copy");
+			document.removeEventListener("copy", listener);
+			window.getSelection().selectAllChildren(el);
+		};
+	</script>
+	<style>
+		tr.sha256, tr.sha256>td {padding-top: 0; font-size: 11px; color: #070;}
+		tr.sha256>td>a {font-style: italic; color: #555;}
+		.download tr, .download td, .download th {padding-bottom: 0;}
+	</style>
+</head>
+<body>
+<br />
+<div style="text-align: center;">
+<a class="dl-button" id="dlButton" href="/" style="color: white;">Red-view for </a>
+<script>
+    var e = document.getElementById('dlButton');
+    if (userOS == 1) {
+    	e.innerHTML = e.text + " Windows";
+    	e.href = "/dl/win/red-view.exe?reload=true";
+    }
+    if (userOS == 2) {
+    	e.innerHTML = e.text + " Linux";
+    	e.href = "/dl/linux/red-view?reload=true";
+    }
+    if (userOS == 3) {
+    	e.innerHTML = e.text + " macOS";
+    	e.href = "/dl/mac/red-view?reload=true";
+    }
+</script>
+</div>
+<br />
+<br />
+<br />
+
+<div style="width: 380px; margin: 0 auto;">
+	<table class="dlhelp">
+		<tr><th>GUI Red :</th><td> Red interpreter + View + GUI console</td></tr>
+		<tr><th>CLI Red :</th><td> Red interpreter + CLI console</td></tr>
+		<tr><th>Red Toolchain :</th><td> Encapper for Red + Red/System compiler</td></tr>
+	</table>
+</div>
+
+<div class="dlbox" align="center">
+<table class="download">
+	<tr>
+		<th colspan="2" style="text-align: left;">Windows 
+			<span class="hist"><a href="/dl/auto/win/history.html">[History]</a></span>
+		</th>
+		<th>
+			<a href="https://ci.appveyor.com/project/red/red/branch/master" target="_blank">
+				<img src="https://ci.appveyor.com/api/projects/status/32r7s2skrgm9ubva?svg=true" />
+			</a>
+		</th>
+	</tr><tr>
+		<td class="leftcol"> 🡇 GUI Red </td>
+		<td class="midcol"><a href="/dl/auto/win/red-view-06may24-36adc615a.exe">red-view-06may24-36adc615a.exe</a></td>
+		<td>1.5 MB</td>
+	</tr>
+	<tr class="sha256"><td colspan="3"><strong>sha256: </strong><a onclick="javascript:copyToClipboard('c93663cd35f199d9ed075d3cfdb4858f712f9b65d5ae6553728519a5a9d9ec97',this)">c93663cd35f199d9ed075d3cfdb4858f712f9b65d5ae6553728519a5a9d9ec97</a></td></tr>
+	<tr>
+		<td class="leftcol"> 🡇 CLI Red </td>
+		<td class="midcol"><a href="/dl/auto/win/red-06may24-36adc615a.exe">red-06may24-36adc615a.exe</a></td>
+		<td>1.0 MB</td>
+	</tr>
+	<tr class="sha256"><td colspan="3"><strong>sha256: </strong><a onclick="javascript:copyToClipboard('a47fb55f3b9a75082882264d54704e0a2daae8484c98c17438105e8b871f039e',this)">a47fb55f3b9a75082882264d54704e0a2daae8484c98c17438105e8b871f039e</a></td></tr>
+	<tr>
+		<td class="leftcol"> 🡇 Red Toolchain </td>
+		<td class="midcol"><a href="/dl/auto/win/red-toolchain-06may24-36adc615a.exe">red-toolchain-06may24-36adc615a.exe</a></td>
+		<td>1.4 MB</td>
+	</tr>
+	<tr class="sha256"><td colspan="3"><strong>sha256: </strong><a onclick="javascript:copyToClipboard('a9e42142a765386d9441acea87c452926677465d37ec092c706de9afa199ce9e',this)">a9e42142a765386d9441acea87c452926677465d37ec092c706de9afa199ce9e</a></td></tr>
+</table>
+<table class="download">
+	<tr>
+		<th colspan="2" style="text-align: left;">GNU/Linux (*)
+			<span class="hist"><a href="/dl/auto/linux/history.html">[History]</a></span>
+		</th>
+		<th>
+			<a href="https://github.com/red/red/actions?query=workflow%3ALinux-x86" target="_blank">
+				<img src="https://github.com/red/red/workflows//badge.svg" alt="Linux build 2" style="max-width: 100%;">
+			</a>
+		</th>
+	</tr><tr>
+		<td class="leftcol"> 🡇 GUI Red </td>
+		<td class="midcol"><a href="/dl/auto/linux/red-view-06may24-36adc615a">red-view-06may24-36adc615a</a></td>
+		<td>1.5 MB</td>
+	</tr>
+	<tr class="sha256"><td colspan="3"><strong>sha256: </strong><a onclick="javascript:copyToClipboard('2940d4b67f51acd67e7f3ce3b4d98154fcbf6109a0156681adaf5a213bb9081e',this)">2940d4b67f51acd67e7f3ce3b4d98154fcbf6109a0156681adaf5a213bb9081e</a></td></tr>
+	<tr>
+		<td class="leftcol"> 🡇 CLI Red </td>
+		<td class="midcol"><a href="/dl/auto/linux/red-06may24-36adc615a">red-06may24-36adc615a</a></td>
+		<td>1.0 MB</td>
+	</tr>
+	<tr class="sha256"><td colspan="3"><strong>sha256: </strong><a onclick="javascript:copyToClipboard('9e6d352fe545f8dbbe41a64f7237e700d48aac969a03ea673948477efde8310a',this)">9e6d352fe545f8dbbe41a64f7237e700d48aac969a03ea673948477efde8310a</a></td></tr>
+	<tr>
+		<td class="leftcol"> 🡇 Red Toolchain </td>
+		<td class="midcol"><a href="/dl/auto/linux/red-toolchain-06may24-36adc615a">red-toolchain-06may24-36adc615a</a></td>
+		<td>1.5 MB</td>
+	</tr>
+	<tr class="sha256"><td colspan="3"><strong>sha256: </strong><a onclick="javascript:copyToClipboard('61df462ac6eeaf2e8a998c16a964dbe4c8d3d4372dc561fe9452da1dc666e254',this)">61df462ac6eeaf2e8a998c16a964dbe4c8d3d4372dc561fe9452da1dc666e254</a></td></tr>
+	<tr>	
+</table>
+<table class="download">
+	<tr>
+		<th colspan="2" style="text-align: left;">macOS (32-bit)
+			<span class="hist"><a href="/dl/auto/mac/history.html">[History]</a></span>
+		</th>
+		<th>
+		</th>
+	</tr><tr>
+		<td class="leftcol"> 🡇 GUI Red </td>
+		<td class="midcol"><a href="/dl/auto/mac/red-view-06may24-36adc615a.zip">red-view-06may24-36adc615a.zip</a></td>
+		<td>0.7 MB</td>
+	</tr>
+	<tr class="sha256"><td colspan="3"><strong>sha256: </strong><a onclick="javascript:copyToClipboard('2f520308a2c4d9112599dbacee8a18d9cf9be94a112313855536b8fce5d9d7ba',this)">2f520308a2c4d9112599dbacee8a18d9cf9be94a112313855536b8fce5d9d7ba</a></td></tr>
+	<tr>
+		<td class="leftcol"> 🡇 CLI Red </td>
+		<td class="midcol"><a href="/dl/auto/mac/red-06may24-36adc615a">red-06may24-36adc615a</a></td>
+		<td>1.0 MB</td>
+	</tr>
+	<tr class="sha256"><td colspan="3"><strong>sha256: </strong><a onclick="javascript:copyToClipboard('d854ae40c9fff0fc6d921af1aaac8ce2ae34da7676b2e9cb7013728738faf82e',this)">d854ae40c9fff0fc6d921af1aaac8ce2ae34da7676b2e9cb7013728738faf82e</a></td></tr>
+	<tr>
+<!--
+	<tr>
+		<td class="leftcol"> 🡇 Red Toolchain </td>
+		<td class="midcol"><a href="/dl/auto/win/red-toolchain-06may24-36adc615a">red-toolchain-06may24-36adc615a</a></td>
+		<td>1.4 MB</td>
+	</tr>
+-->
+</table>
+<table class="download">
+	<tr>
+		<th colspan="2" style="text-align: left;">Raspberry Pi, Linux/ARMhf
+			<span class="hist"><a href="/dl/auto/rpi/history.html">[History]</a></span>
+		</th>
+		<th>
+			<a href="https://github.com/red/red/actions?query=workflow%3ARPi"><img src="https://github.com/red/red/workflows/RPi/badge.svg" alt="ARMhf build 2" style="max-width: 100%;"></a>
+		</th>
+	</tr><tr>
+		<td class="leftcol"> 🡇 GUI Red </td>
+		<td class="midcol"><a href="/dl/auto/rpi/red-view-06may24-36adc615a">red-view-06may24-36adc615a</a></td>
+		<td>2.6 MB</td>
+	</tr>
+	<tr class="sha256"><td colspan="3"><strong>sha256: </strong><a onclick="javascript:copyToClipboard('4749d164bae429660bb05f4a082d108cd4bee39923705e6f77ffc3c5cac9cbe5',this)">4749d164bae429660bb05f4a082d108cd4bee39923705e6f77ffc3c5cac9cbe5</a></td></tr>
+	<tr>
+		<td class="leftcol"> 🡇 CLI Red </td>
+		<td class="midcol"><a href="/dl/auto/rpi/red-06may24-36adc615a">red-06may24-36adc615a</a></td>
+		<td>1.7 MB</td>
+	</tr>
+	<tr class="sha256"><td colspan="3"><strong>sha256: </strong><a onclick="javascript:copyToClipboard('a87858c2cfd65dccc9a52916770bea0d04759ba16ec3c60fbc59a2727ff657db',this)">a87858c2cfd65dccc9a52916770bea0d04759ba16ec3c60fbc59a2727ff657db</a></td></tr>
+</table>
+
+</div>
+
+</body>
+</html>

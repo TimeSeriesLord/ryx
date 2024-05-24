@@ -1,0 +1,13 @@
+;; while loop = for loop
+;; FOR 'word start end bump body 
+ 
+bump: step: 1
+end: 10
+while [step <= end ][ 
+    print step 
+    step: step + bump
+]
+
+for i 1 10 1 [
+    print i 
+]

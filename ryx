@@ -1,0 +1,5 @@
+#! /bin/red 
+
+Red [ ]
+
+call/shell {red --catch ~/apps/ryx/ryx.red &exit}
