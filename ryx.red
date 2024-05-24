@@ -241,6 +241,7 @@ if not none? session/blacklist [
         any [
             not dir? dir 
             find dir %ryx.
+            find dir %.
         ]
     ]
 
@@ -330,7 +331,7 @@ system/standard/header: get-header %ryx.header.red
 ;; unset the words to clean up the dictionary (global context) of pollution
 unset [ 
     firsts seconds path dot-dir settings specification
-    stores words directory drives
+    stores words directory drives dirs
 ]
 
 ;; fancy prompts
