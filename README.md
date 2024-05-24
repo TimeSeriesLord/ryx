@@ -24,8 +24,8 @@ As long as you put your files under Rxy in a named directory (folder) and with a
 
 Here is a draft of a book Rxy with Red!
 
-[Rxy with Red!](https://rxy.tiddlyhost.com/)
+[Rxy with Red!](https://ryx.tiddlyhost.com/)
 
 # Updates!
 
-18-May-2024 New Book https://rxy.tiddlyhost.com/
+18-May-2024 New Book https://ryx.tiddlyhost.com/
