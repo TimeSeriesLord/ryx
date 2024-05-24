@@ -18,20 +18,25 @@ Red [
 map.2: function [ 
 	{returns a series applying arity 2 function to subset of series! types}
     f [any-function!] "arity 2"
-    values [ block! vector! url!] "data"
-    farg [integer! float! block!] "second value of passed function"
+    values [ block! vector!] "data"
+    farg [integer! float! vectors!] "second value of passed function"
 ][
 	;; return block or vector
     blank dout
 
 	;; if values is longer, equalize 
-	if all [block? farg longer? values farg] [
-		values: if longer? a b [slice copy values reduce [1 length? farg] ]
+	;; RLI ignores if second vectors! is longer
+	if all [
+		any [block? farg vector? farg]
+		longer? values farg
+	][
+		;; values: if longer? values farg [slice copy values reduce [1 length? farg] ]
+		values: slice copy values reduce [1 length? farg]
 	]
 
 	foreach value values [
 		;; apply the function to the arg and append it to the out data
-		either not block? farg [ 
+		either any [integer? farg float? farg][ 
 			append dout attempt [f value farg]
 		][
 			append dout attempt [
