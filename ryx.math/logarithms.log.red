@@ -24,21 +24,22 @@ Red [
 log: function [
     {Returns the logarithm for a number given a base. 
     The default is base 10.}
-    number [numericv!]
+    number [numericv! vectors!]
     /base  bnum [integer!] {The base to calculate upon.}
     /natural "The natural log."
     /binary "base 2 log"
 ][
-    case [
-        vector? number [
-            return map.2 :rnd case [
+    temp: case [
+        any [vector? number block? number][
+            ;; return map.2 :rnd case [
+            case [
                 base [
                    map.2 :divide map :log-e to-block v log-e bnum
                 ]
                 binary [ map :log-2 to-block number]
                 natural [  map :log-e to-block number] 
                 true [ map :log-10 to-block number]
-            ] 2            
+            ] ;; 2           
         ]
         'otherwise [
             return case [
@@ -49,5 +50,10 @@ log: function [
             ]
         ]
     ]
+    return case [
+        vector? number [vector map.2 :rnd temp 2]
+        'otherwise [temp]
+    ]
 ]    
+
   
