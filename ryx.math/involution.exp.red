@@ -20,17 +20,22 @@ _exp: :exp
 
 exp: function [
     {Raises e (the base of natural logarithm) to the power specified} 
-    value [numericv!] 
+    value [numericv! vectors!] 
 ][
-	case [
+	return case [
 		vector? value [
-			;; ees: e .. [e (count? value) ]
-;;			return vector map.2 :power e .. [e (count? value) ] to-block value			
-			return vector map.2 :power e .. [e (count? value) ] value			
+			vector map.2 :power e .. [e (count? value) ] value			
+		] 
+		all [block? value truevector? value][
+			map.2 :power e .. [e (count? value) ] value			
 		]
-
+			;; ees: e .. [e (count? value) ]
+		all [block? value not truevector? value][
+			make error! "Not a true vector"
+		]
+			;; return vector map.2 :power e .. [e (count? value) ] to-block value			
 		'otherwise [
-			return _exp value
+			_exp value
 		]
 	]
 
