@@ -41,7 +41,7 @@ comment {
     ]
 
     ;; get out fast if mere replication
-    if start = end [
+    if all [ start = end not none? step] [
         return replicate start step
     ]
 
@@ -195,7 +195,7 @@ comment {
         ]
 
         ;; ----- TIME
-        any [time? start time? end word? step] [
+        all [time? start time? end word? step] [
             case [
                 ; ms = milliseconds
                 step = 'ms [
@@ -220,15 +220,12 @@ comment {
             ]
         ]        
 
-
-
         ;; time - time - none
         all [time? start time? end none? step][ step: 1]
 
         ;; ----- DATES
 
-
-        any [date? start date? end word? step] [
+        all [date? start date? end word? step] [
             case [
                 ; m = month = 1 m
                 step = 'm [
@@ -319,7 +316,7 @@ comment {
                 start: start + step
             ]
         ]
-        ;;start: start + step 
+        ;; start: start + step 
     ]
     either steptype = 'ql [ 
         return dout: map :qlf dout 
