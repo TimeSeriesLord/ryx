@@ -1,4 +1,0 @@
-make object! [
-    a: 23
-    b: 19
-]

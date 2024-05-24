@@ -1,3 +1,0 @@
-Red [ ]
-
-zena.abc: :abc
