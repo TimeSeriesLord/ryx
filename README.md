@@ -1,30 +1,32 @@
-Rxy is a thinking environment, a powerful tool designed to enhance problem-solving. 
+Ryx is a thinking environment, a powerful tool designed to enhance problem-solving. 
 
-Rxy exists for problem solvers, you know, data analysts, academic researchers, businesswomen, for anyone who uses computers solve problems in terms of data and data transformation. 
+To learn more, go to the [Ryx Wiki](https://github.com/TimeSeriesLord/ryx/wiki).
 
-Input, transformation, output — that is what it is all about. 
+# Get Ryx Running!
 
-Genius Chuck Moore championed the idea solving problems by combining words to achieve complex functionality when he created Forth. Chuck's approach inspires Rxy!
+These instructions are for Linux distro users. To use Ryx, git clone the repository.
 
-Rxy lets you be expressive and results-oriented.  Over time, with Rxy, you will create a problem-solving language that reflects on how you think. 
+1. Install Git for your distro, if you have yet to do.
+2. You need the Red language interpreter. Download that from here:
+> [Red language downloads](https://www.red-lang.org/p/download.html)
+> Ryx can not run without the RLI.
+3. Create a directory named Ryx.
+4. CD to it.
+5. Clone the repository:   
 
-Because it rides atop Red and the Red Language Interpreter (RLI), Rxy leverages the amazing full-stack programming language created by Nenad Rakocevic, himself inspired by the genius of Carl Sassenrath and his REBOL.
+```
+git clone https://github.com/TimeSeriesLord/ryx.git
+```
 
-Follow the directory naming conventions and with a couple of tweaks at start-up, Rxy will automagically incorporate your problem-solving vocabulary into its dictionary. 
+6. chmod +x rxy
+7. Run rxy in your terminal or set a hotkey to it.
 
-Where you go from there, that will be up to you. 
 
-# Rxy at the Start!
-
-When Rxy starts up, it looks to load words. Already it loads hundreds beyond what comes with the RLI. 
-
-As long as you put your files under Rxy in a named directory (folder) and with a couple of code tweaks, Rxy will load ever-growing problem-solving book of words. This way, you can get right to problem-solving. 
-
-# New to Programming or New to Red Language?
+# New to Programming?
 
 Here is a draft of a book Rxy with Red!
 
-[Rxy with Red!](https://ryx.tiddlyhost.com/)
+[Ryx with Red!](https://ryx.tiddlyhost.com/)
 
 # Updates!
 
