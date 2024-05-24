@@ -20,7 +20,7 @@ Date: none
 
 square: function [
     {returns a squared number}
-    num [number!]
+    number [numericv!]
 ][
-    num ** 2
+    number ** 2
 ]
