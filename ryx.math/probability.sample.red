@@ -19,6 +19,7 @@ sample: function [
 	{Returns either one value or a block of n-values randomly sampled from a block! or vector!}
 	values [vectors!] 
 	number [integer!]
+	/without
 ][
 	;; data out
 	blank dout 
@@ -26,10 +27,24 @@ sample: function [
 	;; convert vector! since any is a block evaluator
 	if vector? values [values: to-block values ] 
 
-	;; build a sample block
-	loop number [ 
-		append dout any random values
+	case [
+		without [
+			;; copy since we will destroy
+			v: copy values
+			loop number [
+				append dout picked: random/only v
+				pop find v picked
+			]
+
+		]
+		'otherwise [
+			;; build a sample block
+			loop number [ 
+				append dout any random values
+			]
+		]
 	]
+
 	return either 1 = count? dout [
 		first dout
 	][
