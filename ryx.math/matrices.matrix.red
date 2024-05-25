@@ -1,37 +1,64 @@
 Red [
-	Purpose: " "
-	Override: false
-	Notes: " ^/    "
-	Version: 1.0.0
-	Date: none
-	History: [today ["created" "Stone"]]
-	Programmer: [Stone Johnson]
-	Tabs: true
-	Name: none
-	Needs: none
-	File: none
-	Owner: "Blastoff Enterprises"
-	Rights: "© 2024. All Worldwide Rights Reserved."
-	License: 'tbd
+    Purpose: { }
+    Override: no
+    Notes: { 
+    }
+    Version: 1.0.0
+    Date:  none
+    History: [ today [{created} {Stone}]  ]
+    Programmer: [Stone Johnson]
+    Tabs: on
+    ;; GUI title bar
+    Name: none
+    Needs: none
+    File:    none
+    Owner:   {Blastoff Enterprises}
+    Rights: {© 2024. All Worldwide Rights Reserved.}
+    License: 'MIT
 ]
 
 
 matrix: function [ 
-    pair [pair! block! integer!]
-	/init value
+    {Returns either a matrix from a block of column vectors or from a sequence divided into columns}
+    bv [vectors!]
+    /columns cc
 ][
-	if not init [value: copy [] ]
+    case [
+        ; assumes a vector of scalars, i.e., a vector! or block!
+        columns [ 
+            elements: divide count? bv cc
+            
+            blank dout
+            ;; for the vector
 
-    row: pair/1
-    col: pair/2
-    ;; cols: replicate [ ] col
+            ;; the goal is to end up with a block of columns from which
+            ;; one can call zipper
 
-    ;; dout
-    blank dout 
-    ;; for the rows
-    loop row [
-        append/only dout replicate value col
+            ;; cc = column count, 
+            ;; elements = row count = number of elements in a column
+
+            bv: head bv
+            ;; for column count 
+            loop cc [
+                blank cblock 
+                ;;   for number of elements, 
+                repeat j elements [
+                    ;; add elements to a column block
+                    append cblock first bv
+                    ;; MOVE to the next element
+                    bv: next bv
+                ]
+                ;; add column to layout block
+                repend/only dout cblock
+                ;; call zipper layout block
+            ]
+            return align zipper dout
+
+        ]
+        'otherwise [
+            return align zipper bv
+        ]
     ]
-    new-line/skip dout on 1
 
 ]
+

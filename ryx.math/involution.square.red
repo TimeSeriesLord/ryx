@@ -20,7 +20,10 @@ Date: none
 
 square: function [
     {returns a squared number}
-    number [numericv!]
+    number [numericv! vectors!]
 ][
-    number ** 2
+    if block? number [
+        return map.2 :power number 2
+    ]
+    return number ** 2
 ]
