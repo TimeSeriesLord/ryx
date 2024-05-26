@@ -322,8 +322,6 @@ comment {
 ;; zena: newdiro rejoin [ryx/this %zena/]
 ;; inject zena zena
 
-
-
 ;; fix the standard header to the easyr one
 system/standard/header: get-header %ryx.header.red
 

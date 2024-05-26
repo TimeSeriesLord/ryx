@@ -18,8 +18,10 @@ Red [
 sample: function [
 	{Returns either one value or a block of n-values randomly sampled from a block! or vector!}
 	values [vectors!] 
-	number [integer!]
-	/without
+	size [integer!]
+	/without {Sample without replacement}
+	/clusters {Sample from clusters}
+	/proportional {Sample in proportion from grouping}
 ][
 	;; data out
 	blank dout 
@@ -28,10 +30,56 @@ sample: function [
 	if vector? values [values: to-block values ] 
 
 	case [
+		proportional [
+
+			;; get number of blocks
+			if 2 < cluster-count: count? values [
+				make error! "Not enough clusters!"
+			]
+
+			;; total number of values from all blocks
+			total: count? flatten values
+
+			blank temp	
+			;; loop through each cluster
+
+			forall values [
+
+				ratio: round multiply divide count? subsample: values/1 total size
+				append temp sample subsample ratio 
+			]
+			;; because red 0.6.5 is not doing scoping right
+			return dout: temp			
+
+
+
+		]
+		clusters [
+
+			;; sets cluster-count while doing the check
+			if 2 < cluster-count: count? values [
+				make error! "Not enough clusters!"
+			]
+
+			;; holder of dout from simple sample
+			;; would not be needed if scoping were right
+			blank temp	
+
+			;; loop through each cluster
+			forall values [
+				subsample: values/1
+				append temp sample subsample (floor (1.0 * size) / cluster-count)
+			]
+			;; because red 0.6.5 is not doing scoping right
+			dout: temp			
+
+
+		]
+
 		without [
 			;; copy since we will destroy
 			v: copy values
-			loop number [
+			loop size [
 				append dout picked: random/only v
 				pop find v picked
 			]
@@ -39,7 +87,7 @@ sample: function [
 		]
 		'otherwise [
 			;; build a sample block
-			loop number [ 
+			loop size [ 
 				append dout any random values
 			]
 		]
@@ -51,3 +99,9 @@ sample: function [
 		dout
 	]
 ] 
+
+
+    
+
+
+
