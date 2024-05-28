@@ -14,7 +14,7 @@ median: function [
 	case [
 	
 		odd? length [
-            return pick b  _round/up (length? b) | 2
+            return pick b  round/up (length? b) | 2
 		]
          ;; 1 / 2 * x is the same as x / 2
          ;; the block is merely the sum of the two numbers in the middle
