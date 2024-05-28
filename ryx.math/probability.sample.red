@@ -22,6 +22,8 @@ sample: function [
 	/without {Sample without replacement}
 	/clusters {Sample from clusters}
 	/proportional {Sample in proportion from grouping}
+	/systematic 
+
 ][
 	;; data out
 	blank dout 
@@ -51,8 +53,6 @@ sample: function [
 			;; because red 0.6.5 is not doing scoping right
 			return dout: temp			
 
-
-
 		]
 		clusters [
 
@@ -73,6 +73,21 @@ sample: function [
 			;; because red 0.6.5 is not doing scoping right
 			dout: temp			
 
+
+		]
+		systematic [
+
+			;; population size / sample size
+			interval: divide count? values size
+
+			;; starting point in values
+			start: -1 + sample 1 .. interval 1
+
+			;; advance the values block to sample
+			values: skip values start
+
+			;; now sample it
+			dout: sample values size
 
 		]
 
