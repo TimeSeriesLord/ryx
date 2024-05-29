@@ -27,12 +27,13 @@ rebolize: function  [
     ;; output
     dout: copy []
 
-    nested: either array? indat [true][false]
+    ;; nested: either matrix? indat [true][false]
 
     ;; if the source block! is nested
     any [
         ;; if block of blocks
-        if nested [
+       ;; if nested [
+        if matrix? values [
             ;; transmute the values of the inner blocks
             forall indat [
                 temp: copy [] 

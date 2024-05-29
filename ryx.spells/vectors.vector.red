@@ -41,11 +41,9 @@ Red [
 
 vec: vector: function [
     {Return a vector! from a block!}
-    values [block!]
+    values [block! string! number!]
 ][
-    ;; if we can not make a vector from it
-    ;; if not truevector? values [
-    ;; ]
+    
     return make vector! values
     either error? try [v: make vector! values][
         return make error! "Not a valid expression. Make vector! failed."

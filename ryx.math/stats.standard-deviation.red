@@ -13,10 +13,16 @@ Red [
 ]
 stddev: function [
     {return standard deviation from a block of numbers}
-    indat [ number! block!]
+    values [ number! block!]
+    /sample 
 ][
-    if number? indat [
-        return sqrt indat
+    if number? values [
+        return sqrt values
     ]
-    return sqrt variance indat
+    return either sample [
+        sqrt variance/sample values
+
+    ][
+        sqrt variance values
+    ]
 ] 

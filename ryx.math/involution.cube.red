@@ -20,7 +20,11 @@ Date: none
 
 cube: function [
     {returns a cubed number}
-    num [number!]
+    number [numericv! vectors!]
 ][
-    num ** 3
+    if block? number [
+        return map.2 :power number 3
+    ]
+    return number ** 3
 ]
+ 

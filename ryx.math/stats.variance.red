@@ -12,19 +12,24 @@ Red [
     License:   'tbd
 ]
 variance: function [
-    {return the standard deviation from a block of numbers}
-    indat [ vectors!]
+    {return the variance from a block of numbers}
+    values [vectors!]
+    /sample
 ][
   ;; make a vector from the block of numbers
-    if block? indat [
-        indat: make vector! indat
+    if block? values [
+        values: make vector! values
     ]
-    ;; get its length
-    items: length? indat
+    ;; get its count
+    n: count? values
 
     ;; take away the average
-    indat - average indat
+    ;; it is a vector, so it is destructive
+    values - average values
+
+    ;; it's sample, not population
+    if sample [ n: n - 1]
 
     ;; variance 
-    return (sos to-block indat) / items
+    return (sos to-block values) / n
 ]
