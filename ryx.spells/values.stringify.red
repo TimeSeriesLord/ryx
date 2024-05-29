@@ -1,10 +1,10 @@
 Red [
-	Purpose: " "
+	Purpose: "Convert block! or vector! into string! of various types"
 	Override: false
 	Notes: " ^/    "
 	Version: 1.0.0
 	Date: none
-	History: [today ["created" "Stone"]]
+	History: [29-May-2024 ["created" "Stone"]]
 	Programmer: [Stone Johnson]
 	Tabs: true
 	Name: none

@@ -33,7 +33,7 @@ rebolize: function  [
     any [
         ;; if block of blocks
        ;; if nested [
-        if matrix? values [
+        if matrix? indat [
             ;; transmute the values of the inner blocks
             forall indat [
                 temp: copy [] 
