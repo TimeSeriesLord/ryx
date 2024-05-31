@@ -16,7 +16,7 @@ Red [
     File:    none
     Owner:   {Blastoff Enterprises}
     Rights: {© 2023. All Worldwide Rights Reserved.}
-    License: 'tbd
+    License: 'MIT
 ]
 
 blank: function [

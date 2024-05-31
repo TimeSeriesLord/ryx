@@ -18,18 +18,19 @@ Red [
 skew: function [
     {Return the measure of skewness}
     values [block! vector!]
-	/sample
+	/population
 ][
     ; Skewness is undefined for less than 3 values
     if lesser? (n: count? values) 3 [return none]  
 
     ;;(Sum of cubed deviations from the mean) / (n * standard deviation^3)
-	either sample [
-		(sum cube (map.2 :subtract values mean values)) / (n * cube stddev/sample values)
+	either population [
+		(sum cube (map.2 :subtract values mean values)) / (n * cube stddev/population  values)
 	][
+
 		(sum cube (map.2 :subtract values mean values)) / (n * cube stddev values)
 	]
-    ]
+]
 
 comment {
 Skewness =

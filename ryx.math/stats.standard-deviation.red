@@ -14,13 +14,13 @@ Red [
 stddev: function [
     {return standard deviation from a block of numbers}
     values [ number! block!]
-    /sample 
+    /population
 ][
     if number? values [
         return sqrt values
     ]
-    return either sample [
-        sqrt variance/sample values
+    return either population [
+        sqrt variance/population values
 
     ][
         sqrt variance values

@@ -14,7 +14,7 @@ Red [
 variance: function [
     {return the variance from a block of numbers}
     values [vectors!]
-    /sample
+    /population
 ][
   ;; make a vector from the block of numbers
     if block? values [
@@ -28,7 +28,7 @@ variance: function [
     values - average values
 
     ;; it's sample, not population
-    if sample [ n: n - 1]
+    if not population [ n: n - 1]
 
     ;; variance 
     return (sos to-block values) / n
