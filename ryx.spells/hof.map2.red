@@ -19,7 +19,7 @@ map.2: function [
 	{returns a series applying arity 2 function to subset of series! types}
     f [any-function!] "arity 2"
     values [ block! vector!] "data"
-    farg [integer! float! vectors!] "second value of passed function"
+    farg [number! money! vectors!] "second value of passed function"
 ][
 	;; return block or vector
     blank dout

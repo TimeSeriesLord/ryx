@@ -118,6 +118,8 @@ case [
             make-dir dot-dir
         ]
 
+
+
         ;; there should be a settings file in ~./red/ryx
         ;; if the settings file exists, load it 
         ;; otherwise create it
@@ -144,6 +146,7 @@ case [
                 cloudpath: off
                 blacklist: none
                 first-run: true
+                screen: system/view/screens/1/size
                 directories: function [
 
                 ][
@@ -205,6 +208,7 @@ case [
         ;; a volunteer's code is welcome
     ]
 ]    
+
 
 ;;---------------------------
 
@@ -337,3 +341,4 @@ unset [
 ;; system/console/prompt: reduce [ to-clock now/time "« "]
 system/console/prompt: " » "
 system/console/result: "ʳʸˣ» " 
+

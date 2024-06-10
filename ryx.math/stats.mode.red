@@ -31,7 +31,7 @@ mode: function [
 
     ;; if val is a number return it, but if it is non-numerical make it a word! 
     ;; and then return it 
-    return either number? val[
+    return either any [number? val money? val][
         val
     ][
         to-word to-string val    

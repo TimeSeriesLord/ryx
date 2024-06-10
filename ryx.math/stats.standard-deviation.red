@@ -16,6 +16,7 @@ stddev: function [
     values [ number! block!]
     /population
 ][
+    ;; if one number
     if number? values [
         return sqrt values
     ]

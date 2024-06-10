@@ -28,7 +28,7 @@ skew: function [
 		(sum cube (map.2 :subtract values mean values)) / (n * cube stddev/population  values)
 	][
 
-		(sum cube (map.2 :subtract values mean values)) / (n * cube stddev values)
+		(sum cube (map.2 :subtract values mean values)) / (n * (cube stddev values))
 	]
 ]
 

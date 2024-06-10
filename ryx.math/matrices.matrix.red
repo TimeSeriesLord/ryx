@@ -2,6 +2,14 @@ Red [
     Purpose: { }
     Override: no
     Notes: { 
+         » matrix/columns 1 .. 10 2
+        ʳʸˣ»  [
+        [1 6] 
+        [2 7] 
+        [3 8] 
+        [4 9] 
+        [5 10]
+]
     }
     Version: 1.0.0
     Date:  none

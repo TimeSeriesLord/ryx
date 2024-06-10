@@ -16,9 +16,12 @@ Red [
 ]
 
 bector?: function [
-    {Returns true if values can be vector! or a  mathable block!}
+    "Returns true if whole block can be vector! or a univariate block! of same datatype!"
     values [block!]
 ][
+    ;; though char! can be the scalar! of a vector!,
+    if not empty? first filter/divvy :char?  values [return false]
+    if not empty? first filter/divvy :date?  values [return false]
 
     comment {
         date! time! money! = mathy!
@@ -28,12 +31,13 @@ bector?: function [
         ;; any all integer, all float, all percent
         truevector? values [true]
         ;; all dates
-        not empty? filter :date? values [true]
+        ;; empty? second filter/divvy :date? values [true]
         ;; all times
-        not empty? filter :time? values [true]
+        empty? second filter/divvy :time? values [true]
         ;; all money
-        not empty? filter :money? values [true]
+        empty? second filter/divvy :money? values [true]
         'otherwise [false]
       ]
 ]
 
+ 

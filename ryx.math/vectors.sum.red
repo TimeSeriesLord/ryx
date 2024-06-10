@@ -1,6 +1,7 @@
 Red []
 
 _sum: :sum
+
 sum: func [
     {Sum of all ring components of the block 'xs
         ([ring] -+ ring)
